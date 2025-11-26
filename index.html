@@ -2,45 +2,43 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>La mia Stanza Interattiva</title>
+  <title>Stanza 3D Interattiva</title>
   <style>
-    body, html {
+    html, body {
+      width: 100vw;
+      height: 100vh;
       margin: 0; padding: 0;
-      width: 100vw; height: 100vh;
       overflow: hidden;
-      position: relative;
+      background: #000; /* Nero, fallback */
     }
     #portfolio-btn {
       position: absolute;
-      top: 24px;
-      right: 24px;
+      top: 24px; right: 24px;
       z-index: 10;
-      padding: 10px 20px;
-      font-size: 18px;
-      background: #333;
+      padding: 12px 20px;
+      background: #212121;
       color: #fff;
-      border-radius: 8px;
+      font-size: 18px;
+      border-radius: 6px;
       border: none;
-      cursor: pointer;
       opacity: 0.85;
+      cursor: pointer;
     }
     #portfolio-btn:hover { opacity: 1; }
+    spline-viewer {
+      width: 100vw; height: 100vh;
+      display: block;
+    }
   </style>
-  <!-- SCRIPT SPLINE: collega il visualizzatore -->
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.4/build/spline-viewer.js" async></script>
 </head>
 <body>
-  <!-- Pulsante: Portfolio tradizionale -->
   <button id="portfolio-btn">Portfolio tradizionale</button>
-
-  <!-- Stanza 3D Spline -->
-  <spline-viewer loading-anim-type="spinner-small-dark"
-    url="https://prod.spline.design/tNoSuL-MITeJaoSt/scene.splinecode"
-    style="width: 100vw; height: 100vh;">
+  <spline-viewer
+    loading-anim-type="spinner-small-dark"
+    url="https://prod.spline.design/tNoSuL-MITeJaoSt/scene.splinecode">
   </spline-viewer>
-
   <script>
-    // Clicca sul pulsante per andare alla versione classica
     document.getElementById('portfolio-btn').onclick = function() {
       window.location.href = "portfolio.html";
     };
